@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diplom</title>
+</head>
+<body>
+<title>Sidorov Diplom</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+<form id="form1">
+    <fieldset id="form">
+
+        <h3>Форма</h3>
+        <br>
+        Геометрия:
+        <select id="f_g">
+            {% for i in form.geometry %}
+            <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+        Задний угол:
+        <select id="f_b">
+            {% for i in form.back_angle %}
+            <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+        Податливость:
+        <select id="f_t">
+            {% for i in form.tolerance %}
+            <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+        Тип отверстия:
+        <select id="f_h">
+            {% for i in form.hole_type %}
+            <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+        <input type="button" id="show_razmer" value="primenit'">
+    </fieldset>
+
+
+    <fieldset id="razmer" hidden="none">
+        <h3>Размер</h3>
+        <br>
+        Диаметр вписанной окружности:
+        <select id="d_l">
+            {% for i in dimensions.length %}
+            <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+        Толщина пластины:
+        <select id="d_t">
+            {% for i in dimensions.thikness %}
+            <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+        Радиус при вершине:
+        <select id="d_r">
+            {% for i in dimensions.radius %}
+            <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+        <input type="button" id="show_struj" value="apply'">
+    </fieldset>
+
+    <fieldset id="strujkolom" hidden="none">
+        <h3>Cтружколом</h3>
+        <br>
+
+        Материал:
+        <select id="c_m">
+            {% for i in chipbreaker.material %}
+            <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+        Скорость:
+        <select id="c_s">
+            {% for i in chipbreaker.speed %}
+            <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+        <input type="button" id="show_splav" value="primenit'">
+    </fieldset>
+
+
+    <fieldset id="splav" hidden="none">
+        <h3>Сплав</h3>
+        <br>
+
+        Материал:
+        <select id="g_m">
+            {% for i in grade.material %}
+            <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+        Скорость:
+        <select id="g_s">
+            {% for i in grade.speed %}
+            <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="button" id="send">ну чё каво, ёпта? подбери мне инструмент, по братски, а?</button>
+    </fieldset>
+
+
+</form>
+
+<script>
+
+</script>
+
+<div class="result"></div>
+</body>
+</html>
